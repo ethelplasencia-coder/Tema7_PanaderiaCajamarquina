@@ -1,0 +1,43 @@
+@startuml clases_v1.0
+skinparam classAttributeIconSize 0
+package "PK-01 Presentación" { }
+package "PK-03 Dominio" {
+class Usuario <<CL-01>>
+class Cliente <<CL-02>>
+class Producto <<CL-03>> {
+- nombre: String
+- precio: Decimal
+- unidadesDisponibles: int
+- receta: String  ' cargada por script, sin operación de mantenimiento
++ estaDisponible(): boolean
+}
+class Pedido <<CL-04>>
+class DetallePedido <<CL-05>>
+class Pago <<CL-06>>
+class Entrega <<CL-07>>
+class ZonaReparto <<CL-08>>
+class Notificacion <<CL-09>>
+class Insumo <<CL-10>>
+class MovimientoInventario <<CL-11>>
+}
+package "PK-02 Servicios" {
+class ServicioCuentas <<CL-12>>
+class ServicioCatalogo <<CL-13>>
+class ServicioPedidos <<CL-14>>
+class ServicioInventario <<CL-15>>
+class ServicioDespacho <<CL-16>>
+class ServicioReportes <<CL-17>>
+class ServicioNotificaciones <<CL-18>>
+}
+Cliente --|> Usuario
+Cliente "1" -- "0..*" Pedido
+Pedido "1" *-- "1..*" DetallePedido
+DetallePedido "*" --> "1" Producto
+Pedido "1" -- "0..1" Pago
+Pedido "1" -- "0..1" Entrega
+Entrega "*" --> "1" ZonaReparto
+Pedido "1" -- "0..*" Notificacion
+MovimientoInventario "*" --> "1" Insumo
+ServicioPedidos ..> Pedido
+ServicioInventario ..> MovimientoInventario
+@enduml
