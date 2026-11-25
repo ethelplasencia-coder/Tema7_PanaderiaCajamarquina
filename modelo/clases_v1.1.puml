@@ -1,0 +1,52 @@
+@startuml clases_v1.1_CR-001
+skinparam classAttributeIconSize 0
+package "PK-03 Dominio" {
+class Producto <<CL-03 modificada>> {
+- nombre: String
+- precio: Decimal
+- unidadesDisponibles: int
++ estaDisponible(): boolean
++ tieneReceta(): boolean
+}
+class Receta <<CL-19 nueva>> {
+- version: int
+- vigente: boolean
++ agregarLinea(insumo, cantidadG)
++ cantidadPara(insumo, unidades): Decimal
+}
+class LineaReceta <<CL-20 nueva>> {
+- cantidadPorUnidadG: Decimal
+}
+class Insumo <<CL-10>> {
+- nombre: String
+- stockG: Decimal
+- stockMinimoG: Decimal
++ bajoMinimo(): boolean
+}
+class MovimientoInventario <<CL-11>> {
+- fecha: DateTime
+- cantidadG: Decimal
+- tipo: String
+- nroPedido: String
+}
+}
+package "PK-02 Servicios" {
+class ServicioRecetas <<CL-21 nueva>> {
++ registrarReceta(producto, lineas)
++ editarReceta(producto, lineas)
++ obtenerVigente(producto): Receta
+}
+class ServicioInventario <<CL-15 modificada>> {
++ descontarPorReceta(pedido)
++ devolverInsumos(pedido)
++ actualizarDisponibilidad(producto)
+}
+}
+Producto "1" o-- "0..*" Receta : versiones
+Receta "1" *-- "1..*" LineaReceta
+LineaReceta "*" --> "1" Insumo
+ServicioRecetas ..> Receta
+ServicioInventario ..> ServicioRecetas
+ServicioInventario ..> MovimientoInventario : registra
+MovimientoInventario "*" --> "1" Insumo
+@enduml
