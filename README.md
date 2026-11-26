@@ -1,10 +1,5 @@
 # Tema 7 – Gestión del cambio y trazabilidad integral (SIPAN)
 
-Universidad Privada del Norte · Modelado y Desarrollo de Aplicaciones (CIIN1322P) · Grupo 5
-Caso: SIPAN – Panadería Cajamarquina · Docente: Dennis Abanto Sanchez · Cajamarca, 2026
-
-Integrantes: Cabellos Torres Yajaira Lisseth (YC) · Plasencia Mostacero Ethel Samanta (EP) ·
-Sangay Chacón José Fernando (JS) · Silva Aguirre Gianfranco Alejandro (GS)
 
 ## Objetivo
 Aplicar control de cambios y versionamiento sobre los artefactos de SIPAN para conservar una
