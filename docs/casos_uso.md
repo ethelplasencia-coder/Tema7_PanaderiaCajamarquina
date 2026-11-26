@@ -12,8 +12,8 @@
 | CU-08 | Descontar insumos según receta **(mod. CR-001)** | Sistema (tras CU-05) | RF08 | HU-08b |
 | CU-09 | Generar reporte diario | Propietaria | RF09 | HU-09 |
 | CU-10 | Asignar y consultar entrega | Cajero / Repartidor | RF10 | HU-10, HU-12 |
-| CU-11 | Agrupar pedidos por zona | Sistema / Repartidor | RF11 | — |
-| CU-12 | Gestionar pago pendiente | Cajero | RF12 | — |
+| CU-11 | Agrupar pedidos por zona | Sistema / Repartidor | RF11 | HU-16 |
+| CU-12 | Gestionar pago pendiente | Cajero | RF12 | HU-17 |
 | CU-13 | Registrar receta de producto **(nuevo CR-001)** | Propietaria | RF13 | HU-08a |
 
 ## CU-13 – Registrar receta de producto

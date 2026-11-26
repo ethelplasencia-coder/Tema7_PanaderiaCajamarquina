@@ -1,5 +1,5 @@
 # language: es
-# Trazabilidad: HU-05 ← RF05 | CU-05 | Must
+# Trazabilidad: HU-05 ← RF05 | CU-05 | CR-002 (RP-03) | Must
 Característica: HU-05 Pagar y confirmar pedido
 
   Esquema del escenario: PR-13 Confirmación con tres métodos de pago
@@ -10,7 +10,7 @@ Característica: HU-05 Pagar y confirmar pedido
 
     Ejemplos:
       | metodo   | entrega          | total | estado                            |
-      | Efectivo | Delivery         | 58.00 | Recibido – pago contra entrega    |
+      | Efectivo | Recojo en tienda | 55.00 | Recibido – pago contra entrega    |
       | Yape     | Delivery         | 58.00 | Recibido – pago por validar       |
       | Plin     | Recojo en tienda | 55.00 | Recibido – pago por validar       |
 
@@ -25,3 +25,9 @@ Característica: HU-05 Pagar y confirmar pedido
   Escenario: PR-16 Doble clic en confirmar
     Cuando el cliente pulsa "Confirmar" dos veces seguidas
     Entonces se registra un solo pedido
+
+  Escenario: PR-40 El efectivo no está disponible para delivery
+    Dado que el cliente eligió "Delivery"
+    Cuando intenta seleccionar el método de pago "Efectivo"
+    Entonces el sistema bloquea la opción
+    Y muestra "El delivery requiere pago anticipado con Yape o Plin"

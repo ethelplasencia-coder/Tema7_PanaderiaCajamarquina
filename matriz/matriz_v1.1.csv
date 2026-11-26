@@ -3,14 +3,14 @@ RF01,El sistema debe permitir al cliente registrarse con correo o celular e inic
 RF02,El sistema debe mostrar el catálogo de productos indicando cuáles están disponibles y cuáles agotados.,CU-02,HU-02,CL-03;CL-13,PR-04;PR-05;PR-06;PR-39
 RF03,El sistema debe permitir al cliente armar un pedido eligiendo recojo en tienda o delivery.,CU-03,HU-03,CL-02;CL-03;CL-04;CL-05;CL-07;CL-14,PR-07;PR-08;PR-09;PR-10
 RF04,El sistema debe calcular el total del pedido incluyendo el costo de envío según la zona.,CU-04,HU-04,CL-04;CL-05;CL-07;CL-08;CL-14,PR-11;PR-12
-RF05,"El sistema debe registrar el pago (efectivo, Yape o Plin) y confirmar el pedido con un número único.",CU-05,HU-05,CL-04;CL-06;CL-14,PR-13;PR-14;PR-15;PR-16
+RF05,"El sistema debe registrar el pago (efectivo, Yape o Plin) y confirmar el pedido con un número único.",CU-05,HU-05,CL-04;CL-06;CL-14,PR-13;PR-14;PR-15;PR-16;PR-40
 RF06,El sistema debe permitir al cliente consultar el estado de su pedido y notificarle cada cambio.,CU-06,HU-06,CL-04;CL-09;CL-18,PR-24
 RF07,El sistema debe permitir al cajero gestionar los pedidos y avanzar sus estados en orden.,CU-07,HU-07;HU-12,CL-01;CL-04;CL-14,PR-17;PR-18;PR-19;PR-20
 RF08,"El sistema debe descontar automáticamente del inventario los insumos utilizados según la receta vigente (RF13), sin intervención del cajero; si el producto no tiene receta, debe confirmar el pedido y alertar a la propietaria.",CU-08,HU-08b,CL-03;CL-04;CL-10;CL-11;CL-15;CL-19;CL-20,PR-21;PR-22;PR-23;PR-39
 RF09,El sistema debe generar el reporte diario de ventas y pedidos pendientes para la propietaria.,CU-09,HU-09,CL-04;CL-06;CL-17,PR-25
 RF10,El sistema debe permitir asignar entregas al repartidor y que este consulte solo sus pedidos.,CU-10,HU-10;HU-12,CL-02;CL-07;CL-16,PR-26
-RF11,El sistema debe agrupar los pedidos de una misma zona recibidos en una ventana de 20 minutos.,CU-11,,CL-07;CL-08;CL-16,PR-27
-RF12,"El sistema debe dejar en «pago pendiente» un pago Yape/Plin no confirmado en 60 s, sin descontar insumos y con alerta al cajero.",CU-12,,CL-04;CL-06;CL-14,PR-28
+RF11,El sistema debe agrupar los pedidos de una misma zona recibidos en una ventana de 20 minutos.,CU-11,HU-16,CL-07;CL-08;CL-16,PR-27
+RF12,"El sistema debe dejar en «pago pendiente» un pago Yape/Plin no confirmado en 60 s, sin descontar insumos y con alerta al cajero.",CU-12,HU-17,CL-04;CL-06;CL-14,PR-28
 RF13,El sistema debe permitir a la propietaria registrar y editar la receta de cada producto (insumos y cantidad en gramos por unidad vendida).,CU-13,HU-08a,CL-03;CL-10;CL-19;CL-20;CL-21,PR-35;PR-36;PR-37;PR-38
 RNF01,"Rendimiento: con 50 usuarios concurrentes, la confirmación del pedido responde en ≤ 3 s.",,DoD,CL-14;CL-15,PR-13;PR-29
 RNF02,Seguridad: comunicación por HTTPS y contraseñas almacenadas cifradas.,,DoD,CL-01;CL-12,PR-03;PR-20;PR-30

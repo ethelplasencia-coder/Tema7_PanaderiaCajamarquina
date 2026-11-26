@@ -21,3 +21,5 @@
 | HU-13 | Gestionar productos del catálogo | — | Vigente |
 | HU-14 | Recuperar contraseña | — | Vigente |
 | HU-15 | Calificar un pedido | — | Vigente |
+| HU-16 | Como repartidor, quiero que los pedidos de una misma zona recibidos en una ventana de 20 minutos se agrupen en una ruta, para reducir mis recorridos (Should, por estimar) | RF11 | Vigente |
+| HU-17 | Como cajero, quiero que un pago con Yape o Plin no confirmado en 60 segundos deje el pedido como «pago pendiente» y me avise, para verificarlo sin perder el pedido (Must, por estimar) | RF12 | Vigente |
