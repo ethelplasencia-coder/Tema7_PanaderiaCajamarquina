@@ -1,0 +1,20 @@
+== matriz/matriz_v1.0.csv ==
+RF con CU      : 12/12 (100.0 %)
+RF con HU      : 10/12 (83.3 %)
+RF con Clases  : 12/12 (100.0 %)
+RF con Pruebas : 12/12 (100.0 %)
+RNF con Clases : 6/6 (100.0 %)
+RNF con Pruebas: 6/6 (100.0 %)
+Clases/paquetes trazados: 20
+Pruebas trazadas : 34
+Brechas: ['RF11: sin HU', 'RF12: sin HU']
+== matriz/matriz_v1.1.csv ==
+RF con CU      : 13/13 (100.0 %)
+RF con HU      : 13/13 (100.0 %)
+RF con Clases  : 13/13 (100.0 %)
+RF con Pruebas : 13/13 (100.0 %)
+RNF con Clases : 6/6 (100.0 %)
+RNF con Pruebas: 6/6 (100.0 %)
+Clases/paquetes trazados: 23
+Pruebas trazadas : 40
+Brechas: ninguna

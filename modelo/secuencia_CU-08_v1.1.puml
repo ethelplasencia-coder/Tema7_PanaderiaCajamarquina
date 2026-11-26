@@ -1,0 +1,27 @@
+@startuml secuencia_CU-08_v1.1
+actor Cliente
+participant ServicioPedidos as SP
+participant ServicioInventario as SI
+participant ServicioRecetas as SR
+participant Insumo
+participant MovimientoInventario as MI
+participant ServicioNotificaciones as SN
+Cliente -> SP : confirmarPedido()
+SP -> SI : descontarPorReceta(pedido)
+loop por cada DetallePedido
+SI -> SR : obtenerVigente(producto)
+alt producto con receta vigente
+SR --> SI : receta
+SI -> Insumo : descontar(cantidadG)
+SI -> MI : registrar(pedido, insumo, cantidadG)
+opt insumo.bajoMinimo()
+SI -> SI : actualizarDisponibilidad(producto)
+end
+else sin receta
+SR --> SI : null
+SI -> SN : alertarPropietaria(producto)
+end
+end
+SI --> SP : ok
+SP --> Cliente : número de pedido único
+@enduml

@@ -1,0 +1,23 @@
+digraph G {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=12, nodesep=0.6, ranksep=0.8];
+  node [shape=plaintext, fontname="Helvetica", fontsize=10];
+  edge [fontname="Helvetica", fontsize=9, labeldistance=2.2, labelangle=35];
+  subgraph cluster_dom { label="PK-03 Dominio"; style=rounded; color="#555555"; fontsize=11;
+    Producto [label=<<table border="1" cellborder="0" cellspacing="0" bgcolor="#FFF6D6"><tr><td><i>«CL-03 modificada»</i></td></tr><tr><td><b>Producto</b></td></tr><hr/><tr><td align="left">- nombre: String<br align="left"/>- precio: Decimal<br align="left"/>- unidadesDisponibles: int<br align="left"/></td></tr><hr/><tr><td align="left">+ estaDisponible(): boolean<br align="left"/>+ tieneReceta(): boolean<br align="left"/></td></tr></table>>];
+    Receta [label=<<table border="1" cellborder="0" cellspacing="0" bgcolor="#DFF0D8"><tr><td><i>«CL-19 nueva»</i></td></tr><tr><td><b>Receta</b></td></tr><hr/><tr><td align="left">- version: int<br align="left"/>- vigente: boolean<br align="left"/></td></tr><hr/><tr><td align="left">+ agregarLinea(insumo, cantidadG)<br align="left"/>+ cantidadPara(insumo, unidades): Decimal<br align="left"/></td></tr></table>>];
+    LineaReceta [label=<<table border="1" cellborder="0" cellspacing="0" bgcolor="#DFF0D8"><tr><td><i>«CL-20 nueva»</i></td></tr><tr><td><b>LineaReceta</b></td></tr><hr/><tr><td align="left">- cantidadPorUnidadG: Decimal<br align="left"/></td></tr><hr/><tr><td> </td></tr></table>>];
+    Insumo [label=<<table border="1" cellborder="0" cellspacing="0" bgcolor="#FFFFFF"><tr><td><i>«CL-10»</i></td></tr><tr><td><b>Insumo</b></td></tr><hr/><tr><td align="left">- nombre: String<br align="left"/>- stockG: Decimal<br align="left"/>- stockMinimoG: Decimal<br align="left"/></td></tr><hr/><tr><td align="left">+ bajoMinimo(): boolean<br align="left"/></td></tr></table>>];
+    Mov [label=<<table border="1" cellborder="0" cellspacing="0" bgcolor="#FFFFFF"><tr><td><i>«CL-11»</i></td></tr><tr><td><b>MovimientoInventario</b></td></tr><hr/><tr><td align="left">- fecha: DateTime<br align="left"/>- cantidadG: Decimal<br align="left"/>- tipo: String<br align="left"/>- nroPedido: String<br align="left"/></td></tr><hr/><tr><td> </td></tr></table>>];
+  }
+  subgraph cluster_srv { label="PK-02 Servicios"; style=rounded; color="#555555"; fontsize=11;
+    SR [label=<<table border="1" cellborder="0" cellspacing="0" bgcolor="#DFF0D8"><tr><td><i>«CL-21 nueva»</i></td></tr><tr><td><b>ServicioRecetas</b></td></tr><hr/><tr><td> </td></tr><hr/><tr><td align="left">+ registrarReceta(producto, lineas)<br align="left"/>+ editarReceta(producto, lineas)<br align="left"/>+ obtenerVigente(producto): Receta<br align="left"/></td></tr></table>>];
+    SI [label=<<table border="1" cellborder="0" cellspacing="0" bgcolor="#FFF6D6"><tr><td><i>«CL-15 modificada»</i></td></tr><tr><td><b>ServicioInventario</b></td></tr><hr/><tr><td> </td></tr><hr/><tr><td align="left">+ descontarPorReceta(pedido)<br align="left"/>+ devolverInsumos(pedido)<br align="left"/>+ actualizarDisponibilidad(producto)<br align="left"/></td></tr></table>>];
+  }
+  Producto -> Receta [dir=both, arrowtail=odiamond, arrowhead=none, taillabel="1", headlabel="0..*", label=" versiones"];
+  Receta -> LineaReceta [dir=both, arrowtail=diamond, arrowhead=none, taillabel="1", headlabel="1..*"];
+  LineaReceta -> Insumo [arrowhead=vee, taillabel="*", headlabel="1"];
+  Mov -> Insumo [arrowhead=vee, taillabel="*", headlabel="1"];
+  SR -> Receta [style=dashed, arrowhead=vee];
+  SI -> SR [style=dashed, arrowhead=vee];
+  SI -> Mov [style=dashed, arrowhead=vee, label=" registra"];
+}

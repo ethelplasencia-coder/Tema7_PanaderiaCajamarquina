@@ -11,7 +11,9 @@
 | HU-05 | Pagar y confirmar pedido | RF05 | Vigente |
 | HU-06 | Recibir aviso de estado del pedido | RF06 | Vigente |
 | HU-07 | Gestionar pedidos en el panel del cajero | RF07 | Vigente |
-| HU-08 | Descontar insumos según receta | RF08 | Vigente |
+| HU-08 | Descontar insumos según receta | RF08 | Obsoleta (dividida en HU-08a y HU-08b) |
+| HU-08a | Como propietaria, quiero registrar la receta de cada producto con sus insumos y cantidades, para que el sistema descuente el inventario sin que el cajero intervenga (3 SP) | RF13 | Vigente |
+| HU-08b | Como propietaria, quiero que al confirmarse un pedido se descuenten los insumos según la receta registrada, para conocer mi stock sin contarlo a mano (3 SP) | RF08 | Vigente |
 | HU-09 | Consultar reporte diario | RF09 | Vigente |
 | HU-10 | Ver mis entregas (repartidor) | RF10 | Vigente |
 | HU-11 | Ver historial de pedidos | — | Vigente |
@@ -19,3 +21,5 @@
 | HU-13 | Gestionar productos del catálogo | — | Vigente |
 | HU-14 | Recuperar contraseña | — | Vigente |
 | HU-15 | Calificar un pedido | — | Vigente |
+| HU-16 | Como repartidor, quiero que los pedidos de una misma zona recibidos en una ventana de 20 minutos se agrupen en una ruta, para reducir mis recorridos (Should, por estimar) | RF11 | Vigente |
+| HU-17 | Como cajero, quiero que un pago con Yape o Plin no confirmado en 60 segundos deje el pedido como «pago pendiente» y me avise, para verificarlo sin perder el pedido (Must, por estimar) | RF12 | Vigente |
